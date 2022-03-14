@@ -17,7 +17,7 @@ public class Main {
 
     static int cnt = 0;
 
-    public static <FileInputStreamfis> void main(String[] args) {
+    public static void main(String[] args) {
 
 
         String pathRoot = "D:\\MOE\\GuglExt\\Coding\\netology\\hwNetCore3StreamIO\\" +
