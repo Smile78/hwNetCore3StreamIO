@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/hwNetCore3StreamIO1instal.iml" filepath="$PROJECT_DIR$/hwNetCore3StreamIO1instal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hwNetCore3StreamIO.iml" filepath="$PROJECT_DIR$/hwNetCore3StreamIO.iml" />
     </modules>
   </component>
 </project>

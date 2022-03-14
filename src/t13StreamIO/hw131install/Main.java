@@ -12,7 +12,6 @@ public class Main {
     static int cnt = 0;
 
 
-
     static void mkFileMySvrl(int point, String pathmain, String kat4newFiles, String[] fileNames) {
 
         for (int i = 0; i < fileNames.length; i++) {
@@ -47,11 +46,12 @@ public class Main {
         log1.append("пункт " + point + " " + "шаг " + cnt++ + " запишем текст из Лога в  файл \n");
         // потерялось???
 
-        try (FileWriter writer = new FileWriter(pathMain + kat4TxtFile +"\\"+ fileNameToText, false)) {
+        try (FileWriter writer = new FileWriter(pathMain + kat4TxtFile + "\\" + fileNameToText, false)) {
             //незабываем что перед файлом надо \\- "указатель директория"!!!
             writer.write(text2rite);
             writer.flush();
             System.out.println("Записали чтото в файл успешно ");
+            writer.close(); //не исп изза реср...
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -60,7 +60,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String pathMain = "D:\\MOE\\GuglExt\\Coding\\netology\\javaCore\\src\\netology\\Core\\t13StreamIO\\hw131install";
+        String pathMain = "D:\\MOE\\GuglExt\\Coding\\netology\\hwNetCore3StreamIO\\";
         // путь по дефолту/корень рабочего
         String[] catNames;          // перечень назв.каталогов для создания  или   1го но в массиве
         String kat4newCat;          // путь для созд.нов.каталогов от *корня
@@ -125,6 +125,4 @@ public class Main {
         writeTextInFile(point, pathMain, kat4TxtFile, fileNameToText, text2rite);
 
     }
-
-
 }

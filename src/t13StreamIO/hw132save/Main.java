@@ -20,7 +20,7 @@ public class Main {
 
             fileNameList.add(nameFile);
 
-            try (FileOutputStream fos = new FileOutputStream(savePath +"\\"+ nameFile);
+            try (FileOutputStream fos = new FileOutputStream(savePath + "\\" + nameFile);
                  ObjectOutputStream oos = new ObjectOutputStream(fos)) {
                 //запишемэкземплярклассавфайл
                 oos.writeObject(obj);
@@ -48,7 +48,7 @@ public class Main {
                 fis.read(buffer);                                // добавляем содержимое кархиву
                 zout.write(buffer);                              // закрываем текущуюзапись дляновойзаписи
 
-                fis.close(); // тыдынь потомучто не в ресурсах!!
+                fis.close(); // тыдынь потомучто не в ресурсах!
             }
             zout.closeEntry();
 
@@ -66,6 +66,10 @@ public class Main {
                  ObjectInputStream ois = new ObjectInputStream(fis)) {
                 //десериализуемобъектискастимеговкласс
                 gameProgress = (GameProgress) ois.readObject();
+
+                ois.close();//тут с ресурсами же //кто первый тот изакрывается ?
+                fis.close();//тут с ресурсами же
+
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }
@@ -77,7 +81,8 @@ public class Main {
     public static void main(String[] args) {
 
         String savePath =
-                "D:\\MOE\\GuglExt\\Coding\\netology\\javaCore\\src\\netology\\Core\\t13StreamIO\\hw131install\\Games\\savegames";
+                "D:\\MOE\\GuglExt\\Coding\\netology\\hwNetCore3StreamIO\\" +
+                        "Games\\savegames";
 
 
         List<GameProgress> objList = new ArrayList();
@@ -109,17 +114,14 @@ public class Main {
         //TODO
         // чз итератор?
         for (String str : fileNameList) {
-            File newFile = new File(savePath +"\\"+ str);
+            File newFile = new File(savePath + "\\" + str);
             if (newFile.delete()) System.out.println("Файл " + str + " удален");
         }
 
         //почистим список имен файлов
         fileNameList.clear();
-        System.out.println("size "+fileNameList.size());
-
+        System.out.println("size " + fileNameList.size());
 
     }
-
-
 
 }

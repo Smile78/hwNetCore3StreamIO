@@ -1,6 +1,6 @@
 package t13StreamIO.hw133load;
 
-import  t13StreamIO.hw132save.GameProgress;
+import t13StreamIO.hw132save.GameProgress;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +20,7 @@ public class Main {
     public static <FileInputStreamfis> void main(String[] args) {
 
 
-        String pathRoot = "D:\\MOE\\GuglExt\\Coding\\netology\\javaCore\\src\\netology\\Core\\t13StreamIO\\hw131install\\" +
+        String pathRoot = "D:\\MOE\\GuglExt\\Coding\\netology\\hwNetCore3StreamIO\\" +
                 "Games";
         String pathArch = "\\savegames";
         String archName = "zip_name.zip";
@@ -49,7 +49,7 @@ public class Main {
         System.out.println("\nПочистим каталожик");
         for (String str : fileLinkList) {
             File newFile = new File(str);
-            if (newFile.delete()) System.out.println("Файл " + regFileName(newFile.getName())  + " удален");
+            if (newFile.delete()) System.out.println("Файл " + regFileName(newFile.getName()) + " удален");
             // можно и без гетНейм
             // такто регулярка может и весь путь исколючить из названия
         }
@@ -64,7 +64,7 @@ public class Main {
         Matcher matcher = pattern.matcher(str);
 
         while (matcher.find()) {
-            shortName =  str.substring(matcher.start(), matcher.end());
+            shortName = str.substring(matcher.start(), matcher.end());
         }
 
         return shortName;
@@ -107,7 +107,9 @@ public class Main {
                 }
                 fout.flush();
                 zin.closeEntry();
-                fout.close();
+
+                fout.close(); // уан
+                zin.close();  // ту.. !
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
